@@ -22,7 +22,7 @@ public class Main {
         printMinSalaryEmployee();
         printMaxSalaryEmployee();
         System.out.println("сумму затрат на ЗП в месяц=" + getSalarySum());
-        printavarageSalaryEmployee();
+        printAvarageSalaryEmployee();
         printEmploeesFullName();
     }
 
@@ -67,7 +67,7 @@ public class Main {
             System.out.println("ФИО сотрудника=>" + employee.getFullNameOfEmployee());
         }
     }
-    private static void printavarageSalaryEmployee() {
+    private static void printAvarageSalaryEmployee() {
         System.out.println("среднее значение зарплат=" + (double) (getSalarySum() / employees.length));
     }
 }
