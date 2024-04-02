@@ -19,9 +19,10 @@ public class Main {
     public static void main(String[] args) {
         inicial();
         printEmployee();
-        printMin_MaxSalaryEmployee();
+        printMinSalaryEmployee();
+        printMaxSalaryEmployee();
         System.out.println("сумму затрат на ЗП в месяц=" + getSalarySum());
-        System.out.println("среднее значение зарплат=" + (double) (getSalarySum() / employees.length));
+        printavarageSalaryEmployee();
         printEmploeesFullName();
     }
 
@@ -38,28 +39,35 @@ public class Main {
         return sum;
     }
 
-    private static void printMin_MaxSalaryEmployee() {
+    private static void printMinSalaryEmployee() {
         int minSalaryEmployee = employees[0].getSalaryOfEmployee();
-        int maxSalaryEmployee = employees[0].getSalaryOfEmployee();
         String personMinSalary = employees[0].getFullNameOfEmployee();
-        String personMaxSalary = employees[0].getFullNameOfEmployee();
         for (int i = 1; i < employees.length; i++) {
             if (employees[i].getSalaryOfEmployee() < minSalaryEmployee) {
                 minSalaryEmployee = employees[i].getSalaryOfEmployee();
                 personMinSalary = employees[i].getFullNameOfEmployee();
             }
+        }
+        System.out.println("Минимальная зарплата у сотрудника " + personMinSalary + " и составляет " + minSalaryEmployee);
+    }
+
+    private static void printMaxSalaryEmployee() {
+        int maxSalaryEmployee = employees[0].getSalaryOfEmployee();
+        String personMaxSalary = employees[0].getFullNameOfEmployee();
+        for (int i = 1; i < employees.length; i++) {
             if (employees[i].getSalaryOfEmployee() > maxSalaryEmployee) {
                 maxSalaryEmployee = employees[i].getSalaryOfEmployee();
                 personMaxSalary = employees[i].getFullNameOfEmployee();
             }
         }
-        System.out.println("Минимальная зарплата у сотрудника " + personMinSalary + " и составляет " + minSalaryEmployee);
         System.out.println("Максимальная  зарплата у сотрудника " + personMaxSalary + " и составляет " + maxSalaryEmployee);
     }
-
     private static void printEmploeesFullName() {
         for (Employee employee : employees) {
             System.out.println("ФИО сотрудника=>" + employee.getFullNameOfEmployee());
         }
+    }
+    private static void printavarageSalaryEmployee() {
+        System.out.println("среднее значение зарплат=" + (double) (getSalarySum() / employees.length));
     }
 }
